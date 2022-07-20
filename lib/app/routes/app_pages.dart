@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:routine/app/modules/home/views/routine_create_view.dart';
 
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
@@ -14,6 +15,11 @@ class AppPages {
     GetPage(
       name: _Paths.HOME,
       page: () => const HomeView(),
+      binding: HomeBinding(),
+    ),
+    GetPage(
+      name: _Paths.CREATE,
+      page: () => const RoutineCreateView(),
       binding: HomeBinding(),
     ),
   ];
