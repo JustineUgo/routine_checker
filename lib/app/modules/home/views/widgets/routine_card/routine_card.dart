@@ -93,9 +93,10 @@ class _RoutineCardState extends State<RoutineCard> {
             )
           ),
           subtitle: Text(
-            '21:20 * Hourly',
+            'Description of the routine \n21:20 * Hourly',
             style: Theme.of(context).textTheme.headline6!.copyWith(
-              color: grey
+              color: grey,
+              height: 1.5
             ),
           ),
           trailing: CircleAvatar(
@@ -106,6 +107,7 @@ class _RoutineCardState extends State<RoutineCard> {
               color: widget.status==-3? dark: green,
             ),
           ),
+          isThreeLine: true,
         ),
         const SizedBox(height: 2,)
       ],
