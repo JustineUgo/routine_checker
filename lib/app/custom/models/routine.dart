@@ -9,8 +9,9 @@ class Routine {
   String? frequency;
   TimeOfDay? time;
   DateTime? dateCreated;
-  int? missed;
-  int? done;
+  int? status;
+  int? missedNumber;
+  int? doneNumber;
   Routine({
     required this.id,
     this.title,
@@ -18,8 +19,9 @@ class Routine {
     this.frequency,
     this.time,
     this.dateCreated,
-    this.missed,
-    this.done,
+    this.status,
+    this.missedNumber,
+    this.doneNumber,
   });
 
   Routine copyWith({
@@ -29,8 +31,9 @@ class Routine {
     String? frequency,
     TimeOfDay? time,
     DateTime? dateCreated,
-    int? missed,
-    int? done,
+    int? status,
+    int? missedNumber,
+    int? doneNumber,
   }) {
     return Routine(
       id: id ?? this.id,
@@ -39,8 +42,9 @@ class Routine {
       frequency: frequency ?? this.frequency,
       time: time ?? this.time,
       dateCreated: dateCreated ?? this.dateCreated,
-      missed: missed ?? this.missed,
-      done: done ?? this.done,
+      status: status ?? this.status,
+      missedNumber: missedNumber ?? this.missedNumber,
+      doneNumber: doneNumber ?? this.doneNumber,
     );
   }
 
@@ -52,21 +56,23 @@ class Routine {
       'frequency': frequency,
       'time': [time?.hour, time?.minute],
       'dateCreated': dateCreated?.millisecondsSinceEpoch,
-      'missed': missed,
-      'done': done,
+      'status': status,
+      'missedNumber': missedNumber,
+      'doneNumber': doneNumber,
     };
   }
 
   factory Routine.fromMap(Map<String, dynamic> map) {
     return Routine(
-      id: map['id'] ?? '',
+      id: map['id']?.toInt() ?? 0,
       title: map['title'],
       description: map['description'],
       frequency: map['frequency'],
-      time: map['time'] != null ? TimeOfDay(hour: map['time'][0], minute: map['time'][1]): null,
+      time: map['time'] != null ? TimeOfDay(hour: map['time'][0], minute: map['time'][1]) : null,
       dateCreated: map['dateCreated'] != null ? DateTime.fromMillisecondsSinceEpoch(map['dateCreated']) : null,
-      missed: map['missed']?.toInt(),
-      done: map['done']?.toInt(),
+      status: map['status']?.toInt(),
+      missedNumber: map['missedNumber']?.toInt(),
+      doneNumber: map['doneNumber']?.toInt(),
     );
   }
 
@@ -76,7 +82,7 @@ class Routine {
 
   @override
   String toString() {
-    return 'Routine(id: $id, title: $title, description: $description, frequency: $frequency, time: $time, dateCreated: $dateCreated, missed: $missed, done: $done)';
+    return 'Routine(id: $id, title: $title, description: $description, frequency: $frequency, time: $time, dateCreated: $dateCreated, status: $status, missedNumber: $missedNumber, doneNumber: $doneNumber)';
   }
 
   @override
@@ -90,8 +96,9 @@ class Routine {
       other.frequency == frequency &&
       other.time == time &&
       other.dateCreated == dateCreated &&
-      other.missed == missed &&
-      other.done == done;
+      other.status == status &&
+      other.missedNumber == missedNumber &&
+      other.doneNumber == doneNumber;
   }
 
   @override
@@ -102,7 +109,8 @@ class Routine {
       frequency.hashCode ^
       time.hashCode ^
       dateCreated.hashCode ^
-      missed.hashCode ^
-      done.hashCode;
+      status.hashCode ^
+      missedNumber.hashCode ^
+      doneNumber.hashCode;
   }
 }

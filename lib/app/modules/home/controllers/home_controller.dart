@@ -23,10 +23,17 @@ class HomeController extends GetxController {
   //reative list of routines
   var routines = <Routine>[].obs;
 
-  List<Color> frequency = [hourly, daily, weekly, monthly, yearly];
+  Map<String, Color> frequencyColors = {
+    'Hourly': hourly, 
+    'Daily': daily, 
+    'Weekly': weekly, 
+    'Monthly': monthly, 
+    'Yearly': yearly
+  };
 
   @override
   void onInit() {
+    // storage.erase();
     loadRoutines();
     super.onInit();
   }
@@ -43,7 +50,7 @@ class HomeController extends GetxController {
 
   //load all routines 
   loadRoutines(){
-    List<Map<String, dynamic>> _routinesMap = storage.read('routines')??[];
+    List _routinesMap = storage.read('routines')??[];
     
     _routinesMap.forEach((routineMap) { 
       routines.add( Routine.fromMap(routineMap));

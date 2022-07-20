@@ -49,7 +49,7 @@ class RoutineCreateController extends GetxController {
   //create routine
   createRoutine(String title, String desc, String freq, TimeOfDay time){
     int id = DateTime.now().millisecond;
-    Routine routine = Routine(id: id, title: title, description: desc, frequency: freq, time: time);
+    Routine routine = Routine(id: id, title: title, description: desc, frequency: freq, time: time, status: -1);
 
     List<Map<String, dynamic>> _routines = storage.read('routines')??[];
     _routines.add(routine.toMap());

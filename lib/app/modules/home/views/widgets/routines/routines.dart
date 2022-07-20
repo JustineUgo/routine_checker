@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:routine/app/custom/models/routine.dart';
 import 'package:routine/app/modules/home/controllers/home_controller.dart';
 import 'package:routine/app/modules/home/views/widgets/routine_card/routine_card.dart';
 
@@ -23,10 +24,8 @@ class _AllRoutinesState extends State<AllRoutines> {
       ListView.builder(
         itemCount: widget.controller.routines.length,
         itemBuilder: (context, index){
-          index = index==0?1:index;
-          int colorIndex = widget.controller.frequency.length%index;
-          colorIndex = colorIndex>4 ? 4: colorIndex;
-          return RoutineCard(controller: widget.controller, colorIndex: colorIndex, status: 0,);
+          Routine routine = widget.controller.routines[index];
+          return RoutineCard(controller: widget.controller, routine: routine,);
         }
       ),
     );

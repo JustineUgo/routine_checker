@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:routine/app/custom/models/routine.dart';
 import 'package:routine/app/modules/home/controllers/home_controller.dart';
 import 'package:routine/app/utils/color/color.dart';
 import 'package:routine/app/utils/dimensions/dimensions.dart';
@@ -7,13 +8,11 @@ import 'package:routine/app/utils/dimensions/dimensions.dart';
 class RoutineCard extends StatefulWidget {
   const RoutineCard({
     Key? key,
-    required this.controller,
-    required this.colorIndex, required this.status,
+    required this.controller, required this.routine,
   }) : super(key: key);
 
   final HomeController controller;
-  final int colorIndex;
-  final int status;
+  final Routine routine;
 
   @override
   State<RoutineCard> createState() => _RoutineCardState();
@@ -87,13 +86,13 @@ class _RoutineCardState extends State<RoutineCard> {
             elevation: 2,
           ),
           title: Text(
-            'Read ahead for coding interview',
+            widget.routine.title!,
             style: Theme.of(context).textTheme.headline4!.copyWith(
-              color: widget.controller.frequency[widget.colorIndex]
+              color: widget.controller.frequencyColors[widget.routine.frequency]
             )
           ),
           subtitle: Text(
-            'Description of the routine \n21:20 * Hourly',
+            '${widget.routine.description!} \n${widget.routine.time!.hour}:${widget.routine.time!.minute} * ${widget.routine.frequency}',
             style: Theme.of(context).textTheme.headline6!.copyWith(
               color: grey,
               height: 1.5
@@ -101,10 +100,11 @@ class _RoutineCardState extends State<RoutineCard> {
           ),
           trailing: CircleAvatar(
             radius: Dimensions.basePadding*1.2,
-            backgroundColor: widget.status==-3?backgroundAccent:green.withOpacity(.1),//green.withOpacity(.1),//backgroundAccent,
-            child: Icon(
-              widget.status==-3?Icons.block: Icons.check, //Icons.check //Icons.block
-              color: widget.status==-3? dark: green,
+            backgroundColor: widget.routine.status==-1?backgroundAccent:green.withOpacity(.1),
+            child: widget.routine.status==-1? const SizedBox.shrink():
+            Icon(
+              widget.routine.status==0?Icons.block: Icons.check,
+              color: widget.routine.status==0? dark: green,
             ),
           ),
           isThreeLine: true,
