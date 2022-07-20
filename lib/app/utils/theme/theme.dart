@@ -10,33 +10,40 @@ ThemeData themeData() {
       /*App bar titles*/
       headline1: base.headline1!.copyWith(
         fontFamily: 'AlbertSans',
-        fontSize: 16.0,
+        fontSize: 20.0,
         color: white,
         fontWeight: FontWeight.w700
       ),
 
       headline2: base.headline2!.copyWith(
         fontFamily: 'AlbertSans',
-        fontSize: 14.0,
+        fontSize: 18.0,
         color: white,
         fontWeight: FontWeight.w600
       ),
 
       headline3: base.headline3!.copyWith(
         fontFamily: 'AlbertSans',
-        fontSize: 14.0,
+        fontSize: 16.0,
         color: white,
-        fontWeight: FontWeight.w500
+        fontWeight: FontWeight.w400
       ),
 
       headline4: base.headline4!.copyWith(
         fontFamily: 'AlbertSans',
         fontSize: 14.0,
         color: white,
-        fontWeight: FontWeight.w400
+        fontWeight: FontWeight.w500
       ),
 
       headline5: base.headline5!.copyWith(
+        fontFamily: 'AlbertSans',
+        fontSize: 14.0,
+        color: white,
+        fontWeight: FontWeight.w400
+      ),
+
+      headline6: base.headline6!.copyWith(
         fontFamily: 'AlbertSans',
         fontSize: 12.0,
         color: white,
@@ -48,7 +55,13 @@ ThemeData themeData() {
   final ThemeData base = ThemeData.dark();
   return base.copyWith(
     //PRIMARY COLOR. 
-    primaryColor: backgroundSecondary,
+    primaryColor: orange,
+
+    //FAB
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+      backgroundColor: orange,
+      foregroundColor: white,
+    ),
     scaffoldBackgroundColor: backgroundPrimary,
 
     //TEXT FIELDS
@@ -64,7 +77,7 @@ ThemeData themeData() {
         borderRadius: BorderRadius.all(Radius.circular(10)),
       ),
       errorBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: redOrange),
+        borderSide: BorderSide(color: red),
         borderRadius: BorderRadius.all(Radius.circular(20))
       ),
       focusedErrorBorder: OutlineInputBorder(
@@ -78,7 +91,7 @@ ThemeData themeData() {
     //TEXT THEME
     textTheme: _textTheme(base.textTheme),
 
-    iconTheme: const IconThemeData(size: 16.0),
+    iconTheme: IconThemeData(size: 16.0, color: white),
   );
 
 
