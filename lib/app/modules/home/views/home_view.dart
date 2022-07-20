@@ -17,14 +17,15 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () =>controller.navigateToCreate(),
         tooltip: 'Add item',
         child: Icon(Icons.add),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked, 
       bottomNavigationBar: Obx(()=>
         AnimatedBottomNavigationBar(
-          inactiveColor: backgroundAccent1,
+          inactiveColor: grey,
+          activeColor: orange,
           iconSize: 24,
           backgroundColor: dark,
           icons: const [Icons.format_list_bulleted_outlined, Icons.trending_up_outlined,],

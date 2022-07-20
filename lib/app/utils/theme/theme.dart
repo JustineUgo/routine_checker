@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:routine/app/utils/color/color.dart';
+import 'package:routine/app/utils/dimensions/dimensions.dart';
 
 
 ThemeData themeData() {
@@ -66,26 +67,24 @@ ThemeData themeData() {
 
     //TEXT FIELDS
     inputDecorationTheme: InputDecorationTheme(
-      contentPadding: EdgeInsets.all(20),
+      contentPadding: EdgeInsets.all(Dimensions.baseBorderRadius*1.5),
       isDense: true,
       enabledBorder: OutlineInputBorder(
         borderSide: BorderSide(color: amber),
-        borderRadius: BorderRadius.all(Radius.circular(20))
+        borderRadius: BorderRadius.all(Radius.circular(Dimensions.baseBorderRadius))
       ),
       focusedBorder: OutlineInputBorder(
         borderSide: BorderSide(color: amber, width: 2),
-        borderRadius: BorderRadius.all(Radius.circular(10)),
+        borderRadius: BorderRadius.all(Radius.circular(Dimensions.baseBorderRadius)),
       ),
       errorBorder: OutlineInputBorder(
         borderSide: BorderSide(color: red),
-        borderRadius: BorderRadius.all(Radius.circular(20))
+        borderRadius: BorderRadius.all(Radius.circular(Dimensions.baseBorderRadius))
       ),
       focusedErrorBorder: OutlineInputBorder(
         borderSide: BorderSide(color: Colors.red, width: 2),
-        borderRadius: BorderRadius.all(Radius.circular(20)),
+        borderRadius: BorderRadius.all(Radius.circular(Dimensions.baseBorderRadius)),
       ),
-      // fillColor: white,
-      // filled: true,
     ),
 
     //TEXT THEME
