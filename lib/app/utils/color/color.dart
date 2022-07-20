@@ -14,7 +14,7 @@ Color grey = Colors.grey[400]!;
 
 //frequency colors
 Color hourly = const Color(0xff04ECF0);
-Color daily = const Color(0xff8a2be2);
+Color daily = const Color(0xffff007f);
 Color weekly = const Color(0xffFC8BC0);
 Color monthly = const Color(0xff32CD30);
 Color yearly = const Color(0xffFFA384);
