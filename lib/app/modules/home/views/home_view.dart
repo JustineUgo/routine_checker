@@ -59,8 +59,24 @@ class HomeView extends GetView<HomeController> {
                 onPageChanged: (value) => controller.switchScreen(value),
                 controller: controller.pageController,
                 children: [
-                  AllRoutines(controller: controller, ),
-                  NextUp(controller: controller,),
+                  Obx(()=> controller.routines.isEmpty?
+                    Center(
+                      child: Text(
+                        "You don't have any routine for today.",
+                        style: Theme.of(context).textTheme.headline4,
+                      )
+                    ):AllRoutines(controller: controller,),
+                  ),
+
+                  Obx(()=> controller.routines.isEmpty?
+                    Center(
+                      child: Text(
+                        "You don't have any routine within the next 12 hours.",
+                        style: Theme.of(context).textTheme.headline4,
+                      )
+                    ):NextUp(controller: controller,),
+                  ),
+                  
                 ],
               ),
             ),

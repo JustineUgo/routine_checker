@@ -4,19 +4,37 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:routine/app/custom/models/routine.dart';
 import 'package:routine/app/routes/app_pages.dart';
 import 'package:routine/app/utils/color/color.dart';
 import 'package:routine/app/utils/constants/duration/duration.dart';
 
 class HomeController extends GetxController {
+  //storage
+  GetStorage storage  = GetStorage();
+  
+  //page view controller
   PageController pageController = PageController();
 
+  //index of page
   var pageIndex = 0.obs;
-  
-  List<Color> frequency = [hourly, daily, weekly, monthly, yearly];
+
+  //reative list of routines
+  var routines = <Routine>[].obs;
+
+  Map<String, Color> frequencyColors = {
+    'Hourly': hourly, 
+    'Daily': daily, 
+    'Weekly': weekly, 
+    'Monthly': monthly, 
+    'Yearly': yearly
+  };
 
   @override
   void onInit() {
+    // storage.erase();
+    loadRoutines();
     super.onInit();
   }
 
@@ -28,6 +46,15 @@ class HomeController extends GetxController {
   @override
   void onClose() {
     super.onClose();
+  }
+
+  //load all routines 
+  loadRoutines(){
+    List _routinesMap = storage.read('routines')??[];
+    
+    _routinesMap.forEach((routineMap) { 
+      routines.add( Routine.fromMap(routineMap));
+    });
   }
 
   //switch the screen btw ALL and NEXTUP

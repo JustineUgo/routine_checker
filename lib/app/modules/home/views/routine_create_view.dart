@@ -23,14 +23,16 @@ class RoutineCreateView extends GetView<RoutineCreateController> {
                 ),
                 child: Column(
                   children: [
-                    const TextField(
-                      decoration: InputDecoration(
+                    TextField(
+                      controller: controller.titleController,
+                      decoration: const InputDecoration(
                         label: Text('Title')
                       ),
                     ),
                     SizedBox(height: Dimensions.basePadding*2),
-                    const TextField(
-                      decoration: InputDecoration(
+                    TextField(
+                      controller: controller.descController,
+                      decoration: const InputDecoration(
                         label: Text('Description')
                       ),
                     ),
@@ -43,7 +45,7 @@ class RoutineCreateView extends GetView<RoutineCreateController> {
                       width: Get.width,
                       height: 50,
                       child: TextButton(
-                        onPressed: ()=>controller.createRoutine(), 
+                        onPressed: ()=>controller.confirmInputs(), 
                         child: Text(
                           'Done',
                           style: Theme.of(context).textTheme.headline2!.copyWith(
