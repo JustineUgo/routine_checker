@@ -62,3 +62,52 @@ flutter:
     - assets/
     - assets/fonts/
 
+   
+  fonts:
+    - family: AlbertSans
+      fonts:
+        - asset: assets/fonts/AlbertSans-Thin.ttf
+          weight: 100
+        - asset: assets/fonts/AlbertSans-ThinItalic.ttf
+          weight: 100
+          style: italic
+        - asset: assets/fonts/AlbertSans-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/AlbertSans-ExtraLightItalic.ttf
+          weight: 200
+          style: italic
+        - asset: assets/fonts/AlbertSans-Light.ttf
+          weight: 300
+        - asset: assets/fonts/AlbertSans-LightItalic.ttf
+          weight: 300
+          style: italic
+        - asset: assets/fonts/AlbertSans-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/AlbertSans-Italic.ttf
+          weight: 400
+          style: italic
+        - asset: assets/fonts/AlbertSans-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/AlbertSans-MediumItalic.ttf
+          weight: 500
+          style: italic
+        - asset: assets/fonts/AlbertSans-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/AlbertSans-SemiBoldItalic.ttf
+          weight: 600
+          style: italic
+        - asset: assets/fonts/AlbertSans-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/AlbertSans-BoldItalic.ttf
+          weight: 700
+          style: italic
+        - asset: assets/fonts/AlbertSans-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/AlbertSans-ExtraBoldItalic.ttf
+          weight: 800
+          style: italic
+        - asset: assets/fonts/AlbertSans-Black.ttf
+          weight: 900
+        - asset: assets/fonts/AlbertSans-BlackItalic.ttf
+          weight: 900
+          style: italic
