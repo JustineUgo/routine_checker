@@ -57,33 +57,34 @@ ThemeData themeData() {
   return base.copyWith(
     //PRIMARY COLOR. 
     primaryColor: orange,
+    scaffoldBackgroundColor: backgroundPrimary,
 
     //FAB
     floatingActionButtonTheme: FloatingActionButtonThemeData(
       backgroundColor: orange,
       foregroundColor: white,
     ),
-    scaffoldBackgroundColor: backgroundPrimary,
 
     //TEXT FIELDS
     inputDecorationTheme: InputDecorationTheme(
+      labelStyle: base.textTheme.headline5!.copyWith(color: grey),
       contentPadding: EdgeInsets.all(Dimensions.baseBorderRadius*1.5),
       isDense: true,
       enabledBorder: OutlineInputBorder(
         borderSide: BorderSide(color: amber),
-        borderRadius: BorderRadius.all(Radius.circular(Dimensions.baseBorderRadius))
+        borderRadius: BorderRadius.all(Radius.circular(Dimensions.baseBorderRadius/2))
       ),
       focusedBorder: OutlineInputBorder(
         borderSide: BorderSide(color: amber, width: 2),
-        borderRadius: BorderRadius.all(Radius.circular(Dimensions.baseBorderRadius)),
+        borderRadius: BorderRadius.all(Radius.circular(Dimensions.baseBorderRadius/2)),
       ),
       errorBorder: OutlineInputBorder(
         borderSide: BorderSide(color: red),
-        borderRadius: BorderRadius.all(Radius.circular(Dimensions.baseBorderRadius))
+        borderRadius: BorderRadius.all(Radius.circular(Dimensions.baseBorderRadius/2))
       ),
       focusedErrorBorder: OutlineInputBorder(
         borderSide: BorderSide(color: Colors.red, width: 2),
-        borderRadius: BorderRadius.all(Radius.circular(Dimensions.baseBorderRadius)),
+        borderRadius: BorderRadius.all(Radius.circular(Dimensions.baseBorderRadius/2)),
       ),
     ),
 
