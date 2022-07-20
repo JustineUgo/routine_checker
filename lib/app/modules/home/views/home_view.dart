@@ -18,6 +18,7 @@ class HomeView extends GetView<HomeController> {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
+        tooltip: 'Add item',
         child: Icon(Icons.add),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked, 
