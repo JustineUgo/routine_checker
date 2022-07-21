@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:routine/app/custom/models/routine.dart';
+import 'package:routine/app/custom/models/routine/routine.dart';
 import 'package:routine/app/modules/home/controllers/home_controller.dart';
 import 'package:routine/app/modules/home/views/widgets/routine_card/routine_card.dart';
 

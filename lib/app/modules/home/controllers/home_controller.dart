@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:routine/app/custom/models/routine.dart';
+import 'package:routine/app/custom/models/routine/routine.dart';
 import 'package:routine/app/routes/app_pages.dart';
 import 'package:routine/app/utils/color/color.dart';
 import 'package:routine/app/utils/constants/duration/duration.dart';
@@ -23,6 +23,7 @@ class HomeController extends GetxController {
   //reative list of routines
   var routines = <Routine>[].obs;
 
+  //map of color to identify frequency
   Map<String, Color> frequencyColors = {
     'Hourly': hourly, 
     'Daily': daily, 
@@ -30,6 +31,10 @@ class HomeController extends GetxController {
     'Monthly': monthly, 
     'Yearly': yearly
   };
+
+  //selected routine to edit, overview, see performance 
+  Rx<Routine> selectedRoutine = Routine(id: 0).obs;
+
 
   @override
   void onInit() {
@@ -67,7 +72,22 @@ class HomeController extends GetxController {
   //Navigate to routine creation screen
   void navigateToCreate(){
           Get.toNamed(Routes.CREATE);
-    // Get.toNamed(Routes.HOME)
+  }
+
+  //Navigate to routine edit screen
+  void navigate(int value, Routine routine){
+    selectedRoutine(routine);
+    
+    //edit
+    if(value==1){
+      Get.toNamed(Routes.EDIT);
+    }else if(value==2){
+      //overview
+      Get.toNamed(Routes.OVERVIEW);
+    }else{
+      //performance
+      Get.toNamed(Routes.PERFORMANCE);
+    }
   }
 
 }

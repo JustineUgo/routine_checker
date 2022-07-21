@@ -29,11 +29,13 @@ environment:
 dependencies:
   animated_bottom_navigation_bar: ^1.0.1
   cupertino_icons: ^1.0.2
+  dart_emoji: ^0.2.0+2
   flutter:
     sdk: flutter
   fluttertoast: ^8.0.9
   get: 4.6.5
   get_storage: ^2.0.3
+  syncfusion_flutter_charts: ^20.2.39
 
 dev_dependencies:
   flutter_lints: ^2.0.0
