@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:routine/app/custom/models/routine.dart';
+import 'package:routine/app/custom/models/routine/routine.dart';
 import 'package:routine/app/modules/home/controllers/home_controller.dart';
 import 'package:routine/app/utils/color/color.dart';
 import 'package:routine/app/utils/dimensions/dimensions.dart';

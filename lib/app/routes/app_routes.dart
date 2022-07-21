@@ -7,6 +7,7 @@ abstract class Routes {
   static const ROUTINE = _Paths.ROUTINE;
   static const CREATE = _Paths.CREATE;
   static const EDIT = _Paths.EDIT;
+  static const PERFORMANCE = _Paths.PERFORMANCE;
 }
 
 abstract class _Paths {
@@ -15,4 +16,5 @@ abstract class _Paths {
   static const ROUTINE = '/routine';
   static const CREATE = '/create';
   static const EDIT = '/edit';
+  static const PERFORMANCE = '/performance';
 }

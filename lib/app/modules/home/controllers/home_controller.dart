@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:routine/app/custom/models/routine.dart';
+import 'package:routine/app/custom/models/routine/routine.dart';
 import 'package:routine/app/routes/app_pages.dart';
 import 'package:routine/app/utils/color/color.dart';
 import 'package:routine/app/utils/constants/duration/duration.dart';
@@ -76,10 +76,15 @@ class HomeController extends GetxController {
 
   //Navigate to routine edit screen
   void navigate(int value, Routine routine){
+    selectedRoutine(routine);
+    
     //edit
     if(value==1){
-      selectedRoutine(routine);
       Get.toNamed(Routes.EDIT);
+    }else if(value==2){
+
+    }else{
+      Get.toNamed(Routes.PERFORMANCE);
     }
   }
 

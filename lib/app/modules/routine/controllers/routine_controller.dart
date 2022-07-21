@@ -1,8 +1,10 @@
+import 'package:dart_emoji/dart_emoji.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:routine/app/custom/models/routine.dart';
+import 'package:routine/app/custom/models/chart/chart.dart';
+import 'package:routine/app/custom/models/routine/routine.dart';
 import 'package:routine/app/modules/home/controllers/home_controller.dart';
 import 'package:routine/app/routes/app_pages.dart';
 
@@ -11,6 +13,9 @@ class RoutineController extends GetxController {
   HomeController homeController = Get.find<HomeController>();
   //storage
   GetStorage storage = GetStorage();
+
+  //emoji
+  var parser = EmojiParser();
 
   //text controllers for fields
   TextEditingController titleController = TextEditingController();
@@ -21,6 +26,11 @@ class RoutineController extends GetxController {
 
   //time of routine
   var time = TimeOfDay.now().obs;
+
+  List<ChartData> data = [
+    ChartData('Missed', 12),
+    ChartData('Done', 15),
+  ];
 
   @override
   void onInit() {

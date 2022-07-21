@@ -59,9 +59,9 @@ class RoutineEditView extends  GetView<RoutineController>  {
                       width: Get.width,
                       height: 50,
                       child: TextButton(
-                        onPressed: ()=>controller.confirmInputs(), 
+                        onPressed: (){},//=>controller.confirmInputs(), 
                         child: Text(
-                          'Done',
+                          'Edit',
                           style: Theme.of(context).textTheme.headline2!.copyWith(
                             color: orange
                           ),
