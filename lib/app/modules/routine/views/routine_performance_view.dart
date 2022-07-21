@@ -98,7 +98,6 @@ class RoutinePerformanceView extends GetView<RoutineController> {
                 ],
               )
             ),
-            
             RoutineInfoCard(
               title: 'Title', 
               subtitle: controller.homeController.selectedRoutine.value.title!,
