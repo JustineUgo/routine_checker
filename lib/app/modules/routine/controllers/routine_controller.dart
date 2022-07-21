@@ -5,7 +5,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:routine/app/custom/models/routine.dart';
 import 'package:routine/app/routes/app_pages.dart';
 
-class RoutineCreateController extends GetxController {
+class RoutineController extends GetxController {
   //storage
   GetStorage storage = GetStorage();
 
@@ -51,7 +51,7 @@ class RoutineCreateController extends GetxController {
     int id = DateTime.now().millisecond;
     Routine routine = Routine(id: id, title: title, description: desc, frequency: freq, time: time, status: -1);
 
-    List<Map<String, dynamic>> _routines = storage.read('routines')??[];
+    List _routines = storage.read('routines')??[];
     _routines.add(routine.toMap());
     storage.write('routines', _routines);
 
@@ -60,6 +60,16 @@ class RoutineCreateController extends GetxController {
     print(storage.read('routines'));
   }
 
+  //updateRoutine
+  updateRoutine(){
+
+    
+    Fluttertoast.showToast(msg: 'Routine updated!');
+    Get.offAllNamed(Routes.HOME);
+    print(storage.read('routines'));
+  }
+
+  //verify field are completed
   confirmInputs(){
     if(titleController.text.trim().isEmpty){
       Fluttertoast.showToast(msg: 'Enter title of routine', gravity: ToastGravity.CENTER);
