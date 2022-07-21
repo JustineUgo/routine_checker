@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:routine/app/modules/routine/views/routine_create_view.dart';
+import 'package:routine/app/modules/routine/views/routine_edit_view.dart';
 
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
@@ -20,13 +21,18 @@ class AppPages {
       binding: HomeBinding(),
     ),
     GetPage(
+      name: _Paths.ROUTINE,
+      page: () => const RoutineView(),
+      binding: RoutineBinding(),
+    ),
+    GetPage(
       name: _Paths.CREATE,
       page: () => const RoutineCreateView(),
       binding: RoutineBinding(),
     ),
     GetPage(
-      name: _Paths.ROUTINE,
-      page: () => const RoutineView(),
+      name: _Paths.EDIT,
+      page: () => const RoutineEditView(),
       binding: RoutineBinding(),
     ),
   ];

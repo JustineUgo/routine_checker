@@ -23,6 +23,7 @@ class HomeController extends GetxController {
   //reative list of routines
   var routines = <Routine>[].obs;
 
+  //map of color to identify frequency
   Map<String, Color> frequencyColors = {
     'Hourly': hourly, 
     'Daily': daily, 
@@ -30,6 +31,10 @@ class HomeController extends GetxController {
     'Monthly': monthly, 
     'Yearly': yearly
   };
+
+  //selected routine to edit, overview, see performance 
+  Rx<Routine> selectedRoutine = Routine(id: 0).obs;
+
 
   @override
   void onInit() {
@@ -67,7 +72,15 @@ class HomeController extends GetxController {
   //Navigate to routine creation screen
   void navigateToCreate(){
           Get.toNamed(Routes.CREATE);
-    // Get.toNamed(Routes.HOME)
+  }
+
+  //Navigate to routine edit screen
+  void navigate(int value, Routine routine){
+    //edit
+    if(value==1){
+      selectedRoutine(routine);
+      Get.toNamed(Routes.EDIT);
+    }
   }
 
 }

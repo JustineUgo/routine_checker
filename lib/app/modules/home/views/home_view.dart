@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:routine/app/custom/widgets/appbar/appbar.dart';
 import 'package:routine/app/modules/home/views/widgets/nextup/nextup.dart';
-import 'package:routine/app/modules/home/views/widgets/routine_card/routine_card.dart';
 import 'package:routine/app/modules/home/views/widgets/routines/routines.dart';
 import 'package:routine/app/modules/home/views/widgets/timeline/timeline.dart';
 import 'package:routine/app/utils/color/color.dart';

@@ -3,9 +3,12 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:routine/app/custom/models/routine.dart';
+import 'package:routine/app/modules/home/controllers/home_controller.dart';
 import 'package:routine/app/routes/app_pages.dart';
 
 class RoutineController extends GetxController {
+  //HomeController
+  HomeController homeController = Get.find<HomeController>();
   //storage
   GetStorage storage = GetStorage();
 
@@ -21,6 +24,7 @@ class RoutineController extends GetxController {
 
   @override
   void onInit() {
+    _prefillField();
     super.onInit();
   }
 
@@ -32,6 +36,16 @@ class RoutineController extends GetxController {
   @override
   void onClose() {
     super.onClose();
+  }
+
+  //if editing routine, prefill fields
+  _prefillField(){
+    if(homeController.selectedRoutine.value.id !=0){
+      titleController.text = homeController.selectedRoutine.value.title!;
+      descController.text = homeController.selectedRoutine.value.description!;
+      freqency(homeController.selectedRoutine.value.frequency!);
+      time(homeController.selectedRoutine.value.time!);
+    }
   }
 
 
