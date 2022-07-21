@@ -14,7 +14,7 @@ class RoutinePerformanceView extends GetView<RoutineController> {
   const RoutinePerformanceView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    print(controller.parser.getEmoji('🥺'));
+    // print(controller.parser.getEmoji('🥺'));
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -90,7 +90,7 @@ class RoutinePerformanceView extends GetView<RoutineController> {
                       fontSize: 50,
                     ),
                   ),
-                  SizedBox(height: Dimensions.p adding*2,),
+                  SizedBox(height: Dimensions.padding*2,),
                   Text(
                     'Good job! You have over 70%',
                     style: Theme.of(context).textTheme.headline2

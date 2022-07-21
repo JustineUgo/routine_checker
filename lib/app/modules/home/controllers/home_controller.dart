@@ -82,8 +82,10 @@ class HomeController extends GetxController {
     if(value==1){
       Get.toNamed(Routes.EDIT);
     }else if(value==2){
-
+      //overview
+      Get.toNamed(Routes.OVERVIEW);
     }else{
+      //performance
       Get.toNamed(Routes.PERFORMANCE);
     }
   }

@@ -22,11 +22,6 @@ class AppPages {
       binding: HomeBinding(),
     ),
     GetPage(
-      name: _Paths.ROUTINE,
-      page: () => const RoutineView(),
-      binding: RoutineBinding(),
-    ),
-    GetPage(
       name: _Paths.CREATE,
       page: () => const RoutineCreateView(),
       binding: RoutineBinding(),
@@ -39,6 +34,11 @@ class AppPages {
     GetPage(
       name: _Paths.PERFORMANCE,
       page: () => const RoutinePerformanceView(),
+      binding: RoutineBinding(),
+    ),
+    GetPage(
+      name: _Paths.OVERVIEW,
+      page: () => const RoutineView(),
       binding: RoutineBinding(),
     ),
   ];
