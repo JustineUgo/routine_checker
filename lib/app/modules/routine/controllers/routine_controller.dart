@@ -50,8 +50,8 @@ class RoutineController extends GetxController {
   // var date = DateTime.now().obs;
 
   List<ChartData> data = [
-    ChartData('Missed', 12),
-    ChartData('Done', 15),
+    ChartData('Missed', 0),
+    ChartData('Done', 0),
   ];
 
   @override
@@ -226,7 +226,7 @@ class RoutineController extends GetxController {
     //update the routine
     if(title!=null) _routine.title = title;
     if(desc!=null) _routine.description = desc;
-    if(status!=null) _routine.status = status;
+    if(status!=null) _routine.status = status; _routine.datesDone!.add(DateTime.now());
     
     _routines.add(_routine);
     

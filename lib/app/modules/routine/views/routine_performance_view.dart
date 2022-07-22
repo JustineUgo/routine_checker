@@ -14,7 +14,11 @@ class RoutinePerformanceView extends GetView<RoutineController> {
   const RoutinePerformanceView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    // print(controller.parser.getEmoji('🥺'));
+    // print(controller.parser.getEmoji('👍'));
+    controller.data.clear();
+
+    controller.data.add(ChartData('Missed', controller.homeController.selectedRoutine.value.datesMissed!.length.toDouble()));
+    controller.data.add(ChartData('Done', controller.homeController.selectedRoutine.value.datesDone!.length.toDouble()));
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -29,11 +33,11 @@ class RoutinePerformanceView extends GetView<RoutineController> {
                   
                   PerformanceLabel(
                     label: 'Done',
-                    count: 15,
+                    count: controller.homeController.selectedRoutine.value.datesDone!.length,
                     color: green,),
                   PerformanceLabel(
                     label: 'Missed',
-                    count: 12,
+                    count: controller.homeController.selectedRoutine.value.datesMissed!.length,
                     color: backgroundSecondary,),
                 ],
               ),
@@ -56,18 +60,18 @@ class RoutinePerformanceView extends GetView<RoutineController> {
                       )
                     ]
                   ),
-                  Container(
-                    alignment: Alignment.center,
-                    height: Get.height/3,
-                    width: Get.width,
-                    child: Text(
-                      '70%',
-                      style: Theme.of(context).textTheme.headline1!.copyWith(
-                        fontSize: 30,
-                        fontWeight: FontWeight.w900
-                      ),
-                    ),
-                  ),
+                  // Container(
+                  //   alignment: Alignment.center,
+                  //   height: Get.height/3,
+                  //   width: Get.width,
+                  //   child: Text(
+                  //     '70%',
+                  //     style: Theme.of(context).textTheme.headline1!.copyWith(
+                  //       fontSize: 30,
+                  //       fontWeight: FontWeight.w900
+                  //     ),
+                  //   ),
+                  // ),
                 ],
               ),
             ),
@@ -85,14 +89,18 @@ class RoutinePerformanceView extends GetView<RoutineController> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    controller.parser.emojify(' :pleading_face: '),
+                    controller.homeController.selectedRoutine.value.datesDone!.length==1?
+                    controller.parser.emojify(' :+1:')
+                    :controller.parser.emojify(' :pleading_face:'),
                     style: TextStyle(
                       fontSize: 50,
                     ),
                   ),
                   SizedBox(height: Dimensions.padding*2,),
                   Text(
-                    'Good job! You have over 70%',
+                    controller.homeController.selectedRoutine.value.datesDone!.length==1?
+                    'Good job! You have over 70%':
+                    'Try performing more',
                     style: Theme.of(context).textTheme.headline2
                   ),
                 ],
