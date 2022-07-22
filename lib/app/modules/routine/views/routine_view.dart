@@ -19,24 +19,25 @@ class RoutineView extends GetView<RoutineController> {
         child: Column(
           children: [
             const Topbar(day: 'Rountine Overview',),
-            DateTimeline(),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: Dimensions.padding),
-              height: 50,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  PerformanceLabel(
-                    label: 'Done',
-                    count: 15,
-                    color: green,),
-                  PerformanceLabel(
-                    label: 'Missed',
-                    count: 12,
-                    color: backgroundSecondary,),
-                ],
-              ),
-            ),
+            // DateTimeline(),
+            // Container(
+            //   padding: EdgeInsets.symmetric(horizontal: Dimensions.padding),
+            //   height: 50,
+            //   child: Row(
+            //     mainAxisAlignment: MainAxisAlignment.spaceAround,
+            //     children: [
+            //       PerformanceLabel(
+            //         label: 'Done',
+            //         count: 15,
+            //         color: green,),
+            //       PerformanceLabel(
+            //         label: 'Missed',
+            //         count: 12,
+            //         color: backgroundSecondary,),
+            //     ],
+            //   ),
+            // ),
+            
             Padding(
               padding: EdgeInsets.symmetric(horizontal: Dimensions.padding),
               child: Container(
