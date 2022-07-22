@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:routine/app/custom/widgets/topbar/topbar.dart';
 import 'package:routine/app/modules/routine/controllers/routine_controller.dart';
-import 'package:routine/app/modules/routine/views/widgets/frequency/frequency.dart';
-import 'package:routine/app/modules/routine/views/widgets/time/time.dart';
 import 'package:routine/app/utils/color/color.dart';
 import 'package:routine/app/utils/dimensions/dimensions.dart';
 
@@ -12,6 +10,9 @@ class RoutineEditView extends  GetView<RoutineController>  {
   const RoutineEditView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    controller.titleController.text = controller.homeController.selectedRoutine.value.title!;
+    controller.descController.text = controller.homeController.selectedRoutine.value.description!;
+
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -40,14 +41,15 @@ class RoutineEditView extends  GetView<RoutineController>  {
                         label: Text('Description')
                       ),
                     ),
-                    SizedBox(height: Dimensions.basePadding*2),
-                    Frequency(controller: controller,),
-                    SizedBox(height: Dimensions.basePadding*2),
-                    Time(controller: controller, ),
+                    
+                    // SizedBox(height: Dimensions.basePadding*2),
+                    // Frequency(controller: controller,),
+                    // SizedBox(height: Dimensions.basePadding*2),
+                    // Time(controller: controller, ),
                     Expanded(
                       child: Center(
                         child: Text(
-                          'For the purpose of this test, \nall routines should expire after 15 minutes.',
+                          'For the purpose of this test, \nall routines would expire/deleted \nafter 15 minutes.',
                           textAlign: TextAlign.center,
                           style: Theme.of(context).textTheme.headline5!.copyWith(
                             color: grey
@@ -59,7 +61,7 @@ class RoutineEditView extends  GetView<RoutineController>  {
                       width: Get.width,
                       height: 50,
                       child: TextButton(
-                        onPressed: (){},//=>controller.confirmInputs(), 
+                        onPressed: ()=>controller.confirmInputs(update: true), 
                         child: Text(
                           'Edit',
                           style: Theme.of(context).textTheme.headline2!.copyWith(

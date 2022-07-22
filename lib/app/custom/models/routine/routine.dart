@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class Routine {
@@ -9,9 +10,15 @@ class Routine {
   String? frequency;
   TimeOfDay? time;
   DateTime? dateCreated;
+  DateTime? dateExpired;
   int? status;
-  int? missedNumber;
-  int? doneNumber;
+  // int? missedNumber;
+  // int? doneNumber;
+  List<DateTime>? datesMissed;
+  List<DateTime>? datesDone;
+  List<DateTime>? datesScheduled;
+  String? info;
+  String? expireInfo;
   Routine({
     required this.id,
     this.title,
@@ -19,10 +26,16 @@ class Routine {
     this.frequency,
     this.time,
     this.dateCreated,
+    this.dateExpired,
     this.status,
-    this.missedNumber,
-    this.doneNumber,
+    this.datesMissed,
+    this.datesDone,
+    this.datesScheduled,
+    this.info,
+    this.expireInfo,
   });
+
+
 
   Routine copyWith({
     int? id,
@@ -31,9 +44,13 @@ class Routine {
     String? frequency,
     TimeOfDay? time,
     DateTime? dateCreated,
+    DateTime? dateExpired,
     int? status,
-    int? missedNumber,
-    int? doneNumber,
+    List<DateTime>? datesMissed,
+    List<DateTime>? datesDone,
+    List<DateTime>? datesScheduled,
+    String? info,
+    String? expireInfo,
   }) {
     return Routine(
       id: id ?? this.id,
@@ -42,9 +59,13 @@ class Routine {
       frequency: frequency ?? this.frequency,
       time: time ?? this.time,
       dateCreated: dateCreated ?? this.dateCreated,
+      dateExpired: dateExpired ?? this.dateExpired,
       status: status ?? this.status,
-      missedNumber: missedNumber ?? this.missedNumber,
-      doneNumber: doneNumber ?? this.doneNumber,
+      datesMissed: datesMissed ?? this.datesMissed,
+      datesDone: datesDone ?? this.datesDone,
+      datesScheduled: datesScheduled ?? this.datesScheduled,
+      info: info ?? this.info,
+      expireInfo: expireInfo ?? this.expireInfo,
     );
   }
 
@@ -56,9 +77,13 @@ class Routine {
       'frequency': frequency,
       'time': [time?.hour, time?.minute],
       'dateCreated': dateCreated?.millisecondsSinceEpoch,
+      'dateExpired': dateExpired?.millisecondsSinceEpoch,
       'status': status,
-      'missedNumber': missedNumber,
-      'doneNumber': doneNumber,
+      'datesMissed': datesMissed?.map((x) => x.millisecondsSinceEpoch).toList(),
+      'datesDone': datesDone?.map((x) => x.millisecondsSinceEpoch).toList(),
+      'datesScheduled': datesScheduled?.map((x) => x.millisecondsSinceEpoch).toList(),
+      'info': info,
+      'expireInfo': expireInfo,
     };
   }
 
@@ -70,9 +95,13 @@ class Routine {
       frequency: map['frequency'],
       time: map['time'] != null ? TimeOfDay(hour: map['time'][0], minute: map['time'][1]) : null,
       dateCreated: map['dateCreated'] != null ? DateTime.fromMillisecondsSinceEpoch(map['dateCreated']) : null,
+      dateExpired: map['dateExpired'] != null ? DateTime.fromMillisecondsSinceEpoch(map['dateExpired']) : null,
       status: map['status']?.toInt(),
-      missedNumber: map['missedNumber']?.toInt(),
-      doneNumber: map['doneNumber']?.toInt(),
+      datesMissed: map['datesMissed'] != null ? List<DateTime>.from(map['datesMissed']?.map((x) => DateTime.fromMillisecondsSinceEpoch(x))) : null,
+      datesDone: map['datesDone'] != null ? List<DateTime>.from(map['datesDone']?.map((x) => DateTime.fromMillisecondsSinceEpoch(x))) : null,
+      datesScheduled: map['datesScheduled'] != null ? List<DateTime>.from(map['datesScheduled']?.map((x) => DateTime.fromMillisecondsSinceEpoch(x))) : null,
+      info: map['info'],
+      expireInfo: map['expireInfo'],
     );
   }
 
@@ -82,7 +111,7 @@ class Routine {
 
   @override
   String toString() {
-    return 'Routine(id: $id, title: $title, description: $description, frequency: $frequency, time: $time, dateCreated: $dateCreated, status: $status, missedNumber: $missedNumber, doneNumber: $doneNumber)';
+    return 'Routine(id: $id, title: $title, description: $description, frequency: $frequency, time: $time, dateCreated: $dateCreated, dateExpired: $dateExpired, status: $status, datesMissed: $datesMissed, datesDone: $datesDone, datesScheduled: $datesScheduled, info: $info, expireInfo: $expireInfo)';
   }
 
   @override
@@ -96,9 +125,13 @@ class Routine {
       other.frequency == frequency &&
       other.time == time &&
       other.dateCreated == dateCreated &&
+      other.dateExpired == dateExpired &&
       other.status == status &&
-      other.missedNumber == missedNumber &&
-      other.doneNumber == doneNumber;
+      listEquals(other.datesMissed, datesMissed) &&
+      listEquals(other.datesDone, datesDone) &&
+      listEquals(other.datesScheduled, datesScheduled) &&
+      other.info == info &&
+      other.expireInfo == expireInfo;
   }
 
   @override
@@ -109,8 +142,12 @@ class Routine {
       frequency.hashCode ^
       time.hashCode ^
       dateCreated.hashCode ^
+      dateExpired.hashCode ^
       status.hashCode ^
-      missedNumber.hashCode ^
-      doneNumber.hashCode;
+      datesMissed.hashCode ^
+      datesDone.hashCode ^
+      datesScheduled.hashCode ^
+      info.hashCode ^
+      expireInfo.hashCode;
   }
 }

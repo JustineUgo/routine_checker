@@ -28,7 +28,7 @@ class _TimeState extends State<Time> {
             const Icon(Icons.notifications_outlined, size: 16),
             SizedBox(width: Dimensions.basePadding),
             Text(
-              'Time',
+              'Set Time ',
               style: Theme.of(context).textTheme.headline5
             ),
           ],

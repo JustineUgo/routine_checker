@@ -39,8 +39,8 @@ class HomeView extends GetView<HomeController> {
       body: SafeArea(
         child: Column(
           children: [
-            Appbar(day: 'Today',),
-            DateTimeline(),
+            const Appbar(day: '',),
+            // DateTimeline(),
             Obx(()=>
               Container(
                 padding: EdgeInsets.only(bottom: Dimensions.basePadding/2),

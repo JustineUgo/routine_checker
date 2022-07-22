@@ -25,7 +25,7 @@ class _AllRoutinesState extends State<AllRoutines> {
         itemCount: widget.controller.routines.length,
         itemBuilder: (context, index){
           Routine routine = widget.controller.routines[index];
-          return RoutineCard(controller: widget.controller, routine: routine,);
+          return RoutineCard(controller: widget.controller, routine: routine, isList: true,);
         }
       ),
     );

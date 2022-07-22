@@ -22,10 +22,10 @@ class _NextUpState extends State<NextUp> {
   Widget build(BuildContext context) {
     return Obx(()=>
       ListView.builder(
-          itemCount: widget.controller.routines.length,
+          itemCount: widget.controller.nextRoutines.length,
         itemBuilder: (context, index){
           
-          Routine routine = widget.controller.routines[index];
+          Routine routine = widget.controller.nextRoutines[index];
           return RoutineCard(controller: widget.controller, routine: routine,);
         }
       ),
